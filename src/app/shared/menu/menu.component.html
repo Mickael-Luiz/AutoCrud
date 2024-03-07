@@ -1,0 +1,28 @@
+<div class="container-menu" [class.inactivate]="menuInactivate">
+  <div class="profile-unidade">
+    <img src="../../../assets/images/logo.png" class="img-unidade">
+    <div class="info-unidade">
+      <div class="desc-unidade">
+        <label class="name-unidade">Industria Stark</label>
+        <label class="current-date">04/09/2023</label>
+        <label class="agency">0001 - Teknisa - Virada Web - Pebbian</label>
+      </div>
+      <button class="change-unidade"> <i class="pi pi-arrow-right-arrow-left"></i> Trocar Unidade </button>
+    </div>
+  </div>
+  <div class="container-links">
+    <input type="text" placeholder="Pesquisar">
+
+    <div class="links">
+
+      <div *ngFor="let item of menuOptions">
+
+        <label> {{item.area}} </label>
+        <ul class="links">
+          <li *ngFor="let option of item.options"> <i class="pi pi-question"></i> {{option.label}} </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

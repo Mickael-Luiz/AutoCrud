@@ -1,0 +1,23 @@
+::ng-deep {
+
+  #p-accordiontab-0 > chevronrighticon {
+    position: absolute;
+    right: 15px;
+    transform: rotate(180deg);
+  }
+
+  #p-accordiontab-0 > chevrondownicon {
+    position: absolute;
+    right: 10px;
+  }
+
+  .p-accordion .p-accordion-header .p-accordion-header-link, .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link, .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link, .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+    color: white;
+    background-color: #233d23;
+  }
+
+  .p-button, .p-button:enabled:hover {
+    background-color: #233d23;
+    border: 1px solid #233d23;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="main-container">
+  <app-menu [menuInactivate]="menuInactivate"></app-menu>
+  <div [class.backgroundLock]="backgroundLock" (click)="handleMenuState(true)"></div>
+  <app-header (emitMenuState)="handleMenuState($event)"></app-header>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container-table">
+  <p-table [columns]="tableFields" [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [ngStyle]="{'text-align': col.align}"
+          style="background-color: #afceac; color: black;">
+          {{ col.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align}">
+
+          <span *ngIf="col.field != 'actions'">
+            {{ rowData[col.field] }}
+          </span>
+
+          <span *ngIf="col.field == 'actions'" class="tdButtons">
+            <button *ngFor="let button of col.buttons" pButton  [pTooltip]="button.tooltip" [icon]="button.icon" tooltipPosition="top" [class]="'p-button-' + button.severity"></button>
+          </span>
+
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

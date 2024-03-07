@@ -1,0 +1,21 @@
+<div class="container-form">
+
+  <form class="grid" style="width: 100%;">
+
+    <div class="flex flex-column gap-2" *ngFor="let field of formFields" [ngClass]="field.col ?? 'col-12 col-md-6 col-lg-4' " style="padding: 10px;">
+      <label [for]="field.field">{{field.label}}</label>
+
+      <input *ngIf="field.type == 'inputtext' || !field.type" pInputText [id]="field.field"/>
+      <textarea *ngIf="field.type == 'inputtextarea'" pInputTextarea [id]="field.field"></textarea>
+      <p-calendar *ngIf="field.type == 'calendar'" [id]="field.field" [showIcon]="true" [showButtonBar]="true"></p-calendar>
+      <p-dropdown *ngIf="field.type == 'dropdown'" [options]="field.values ?? [] " optionLabel="name" [id]="field.field"></p-dropdown>
+      <p-inputMask *ngIf="field.type == 'inputmask'" [mask]="field.values" [placeholder]="field.values" [id]="field.field"></p-inputMask>
+      <p-inputNumber *ngIf="field.type == 'inputnumber'" formControlName="value" [id]="field.field"></p-inputNumber>
+      <p-multiSelect *ngIf="field.type == 'multiselect'" [options]="field.values ?? []" defaultLabel="Select a Option" optionLabel="name" display="chip" [id]="field.field"></p-multiSelect>
+
+      <small *ngIf="false">Campo Obrigatório.</small>
+    </div>
+
+  </form>
+
+</div>
