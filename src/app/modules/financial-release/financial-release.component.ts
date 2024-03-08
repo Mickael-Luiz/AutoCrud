@@ -68,7 +68,7 @@ export class FinancialReleaseComponent {
     { label: 'Código', field: 'codigo' },
     { label: 'Descrição', field: 'desc' },
     { label: 'Descrição Documento', field: 'desc' },
-    { label: 'Data Vencimento', field: 'desc' },
+    { label: 'Data Vencimento', field: 'desc', type: 'calendar' },
     { label: 'Valor', field: 'desc' },
   ]
 
