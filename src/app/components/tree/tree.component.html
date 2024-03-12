@@ -1,0 +1,15 @@
+<div class="container-tree">
+  <div class="branch" *ngFor="let item of data">
+
+    <div class="header-tree"  (click)="item.visibilityChildren = !item.visibilityChildren">
+      <label>
+        <i class="pi pi-angle-right" *ngIf="item.children"></i> {{ item.code }} {{ item.description }} </label>
+      <button pButton type="button" class="p-button-raised p-button-rounded" icon="pi pi-plus"></button>
+    </div>
+
+    <div class="body-tree" *ngIf="item.children && item.visibilityChildren" style="margin-left: 20px;">
+      <app-tree [data]="item.children"></app-tree>
+    </div>
+
+  </div>
+</div>

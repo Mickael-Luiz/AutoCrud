@@ -1,6 +1,6 @@
 <div class="container-form">
 
-  <form class="grid" style="width: 100%;" [formGroup]="form">
+  <form class="grid" style="width: 100%;">
 
     <div class="flex flex-column gap-2" *ngFor="let field of formFields" [ngClass]="field.col ?? 'col-12 col-md-6 col-lg-4' " style="padding: 10px;">
       <label [for]="field.field">{{field.label}}</label>
