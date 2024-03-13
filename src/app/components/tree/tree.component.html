@@ -1,14 +1,18 @@
 <div class="branch" [class.first]="!verifyParente(item)" *ngFor="let item of data">
 
-  <div class="header-tree" (click)="item.visibilityChildren = !item.visibilityChildren">
-    <label>
-      <i class="pi pi-angle-right" *ngIf="item.children  && !item.visibilityChildren"></i>
-      <i class="pi pi-angle-down" *ngIf="item.children && item.visibilityChildren"></i>
-      {{ item.code }} {{ item.description }} </label>
-    <button pButton type="button" class="p-button-raised p-button-rounded p-button-sm" icon="pi pi-plus"></button>
+  <div class="header-tree" >
+    <div class="desc-product" (click)="item.visibilityChildren = !item.visibilityChildren">
+      <div class="box-icon">
+        <i class="pi pi-angle-right" *ngIf="item.children  && !item.visibilityChildren"></i>
+        <i class="pi pi-angle-down" *ngIf="item.children && item.visibilityChildren"></i>
+      </div>
+      {{ item.code }} {{ item.description }}
+    </div>
+    <button pButton type="button" class="p-button-raised p-button-rounded p-button-sm" icon="pi pi-plus"
+      (click)="teste()"></button>
   </div>
 
-  <div class="body-tree" *ngIf="item.children && item.visibilityChildren" style="margin-left: 20px;">
+  <div class="body-tree" *ngIf="item.children && item.visibilityChildren">
     <app-tree [data]="item.children"></app-tree>
   </div>
 
