@@ -1,6 +1,8 @@
 export interface IClassification {
   code: string
   description: string
-  children?: IClassification[]
+  type: string
   visibilityChildren?: boolean;
+  children?: IClassification[]
+  hasParent?: boolean
 }

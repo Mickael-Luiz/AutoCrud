@@ -12,19 +12,19 @@ export class ClassificationRegistrationListComponent {
   dataClone: IClassification[] = []
 
   data: IClassification[] = [
-    { code: '55', description: 'Produto 1', children: [
-      {code: '55-1', description: 'Produto 1.1', children: [
-        {code: '55-1-1', description: 'Produto 1.1.1', children: [
-          {code: '55-1-1-1', description: 'Produto 1.1.1.1'}
+    { code: '1', description: 'Produto', type: 'alimento', children: [
+      {code: '1.1', description: 'Produto', type: 'alimento', children: [
+        {code: '1.1.1', description: 'Produto', type: 'alimento', children: [
+          {code: '1.1.1.1', description: 'Produto', type: 'alimento'}
         ]}
       ]},
-      {code: '55-2', description: 'Produto 1.2'},
-      {code: '55-3', description: 'Produto 1.3'},
+      {code: '1.2', description: 'Produto', type: 'alimento'},
+      {code: '1.3', description: 'Produto', type: 'alimento'},
     ]},
-    { code: '66', description: 'Produto 2', children: [
-      {code: '66-1', description: 'Produto 2.1'},
-      {code: '66-2', description: 'Produto 2.2'},
-      {code: '66-3', description: 'Produto 2.3'},
+    { code: '2', description: 'Produto', type: 'bebida', children: [
+      {code: '2.1', description: 'Produto', type: 'bebida'},
+      {code: '2.2', description: 'Produto', type: 'bebida'},
+      {code: '2.3', description: 'Produto', type: 'bebida'},
     ]}
   ];
 
@@ -34,12 +34,17 @@ export class ClassificationRegistrationListComponent {
 
   createDataClone() {
     this.dataClone = this.data
-    this.dataClone.forEach(el => {
-      el.visibilityChildren = false
-      if (el.children) {
-        el.children.forEach(ch => ch.visibilityChildren = false)
-      }
-    })
+    this.dataClone.forEach(el => el.hasParent = false)
+    const loop = (item: IClassification[]) => {
+      item.forEach(el => {
+        el.hasParent = el.hasParent == false ? false : true
+        el.visibilityChildren = false
+        if(el.children) {
+          loop(el.children)
+        }
+      })
+    }
+    loop(this.dataClone)
   }
 
   showDialog() {

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IClassification } from 'src/app/interface/IClassification';
 
 @Component({
   selector: 'app-tree',
@@ -7,13 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class TreeComponent {
 
-  @Input() data: any[] = []
+  @Input() data: IClassification[] = []
 
-  visible: boolean = false
-  visibilityChildren: boolean = false
-
-  showDialog() {
-    this.visible = true;
+  verifyParente(obj: IClassification): boolean {
+    return !!obj.hasParent
   }
 
 }
