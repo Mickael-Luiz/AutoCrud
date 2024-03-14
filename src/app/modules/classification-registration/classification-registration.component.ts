@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { IClassification } from 'src/app/interface/IClassification';
 
 @Component({
-  selector: 'app-classification-registration-list',
-  templateUrl: './classification-registration-list.component.html',
-  styleUrls: ['./classification-registration-list.component.scss']
+  selector: 'app-classification-registration',
+  templateUrl: './classification-registration.component.html',
+  styleUrls: ['./classification-registration.component.scss']
 })
-export class ClassificationRegistrationListComponent {
+export class ClassificationRegistrationComponent {
 
   visible: boolean = false
   dataClone: IClassification[] = []

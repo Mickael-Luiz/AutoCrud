@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClassificationRegistrationListComponent } from './classification-registration-list/classification-registration-list.component';
+import { ClassificationRegistrationComponent } from './classification-registration.component';
 
 const routes: Routes = [
-  {path: '', component: ClassificationRegistrationListComponent}
+  {path: '', component: ClassificationRegistrationComponent}
 ];
 
 @NgModule({
