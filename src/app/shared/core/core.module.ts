@@ -6,12 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { AccordionModule } from 'primeng/accordion';
+import {RadioButtonModule} from 'primeng/radiobutton';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
-import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { TreeModule } from 'primeng/tree';
 
@@ -41,7 +42,8 @@ import { TreeComponent } from 'src/app/components/tree/tree.component';
     InputMaskModule,
     InputNumberModule,
     CalendarModule,
-    TreeModule
+    TreeModule,
+    RadioButtonModule
   ],
   exports: [
     CrudGeneratorComponent,
@@ -60,7 +62,8 @@ import { TreeComponent } from 'src/app/components/tree/tree.component';
     InputNumberModule,
     CalendarModule,
     TreeModule,
-    TreeComponent
+    TreeComponent,
+    RadioButtonModule
   ]
 })
 export class CoreModule { }

@@ -6,12 +6,26 @@
       <label [for]="field.field">{{field.label}}</label>
 
       <input *ngIf="field.type == 'inputtext' || !field.type" pInputText [id]="field.field"/>
+
       <textarea *ngIf="field.type == 'inputtextarea'" pInputTextarea [id]="field.field"></textarea>
+
       <p-calendar *ngIf="field.type == 'calendar'" [id]="field.field" [showIcon]="true" [showButtonBar]="true"></p-calendar>
+
       <p-dropdown *ngIf="field.type == 'dropdown'" [options]="field.values ?? [] " optionLabel="name" [id]="field.field"></p-dropdown>
+
       <p-inputMask *ngIf="field.type == 'inputmask'" [mask]="field.values" [placeholder]="field.values" [id]="field.field"></p-inputMask>
-      <p-inputNumber *ngIf="field.type == 'inputnumber'" formControlName="value" [id]="field.field"></p-inputNumber>
+
+      <p-inputNumber *ngIf="field.type == 'inputnumber'" [id]="field.field"></p-inputNumber>
+
       <p-multiSelect *ngIf="field.type == 'multiselect'" [options]="field.values ?? []" defaultLabel="Select a Option" optionLabel="name" display="chip" [id]="field.field"></p-multiSelect>
+
+      <div *ngIf="field.type == 'radiobutton'">
+        <div *ngFor="let item of field.values" class="field-checkbox">
+          <p-radioButton [inputId]="item.key" [name]="field.groupname ?? 'group'" [value]="item"></p-radioButton>
+          <label [for]="item.key">{{item.name}}</label>
+        </div>
+      </div>
+
 
       <small *ngIf="false">Campo Obrigatório.</small>
     </div>
