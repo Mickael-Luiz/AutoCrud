@@ -4,5 +4,7 @@ export interface ITableField {
   header: string,
   field: string,
   align?: string,
-  buttons?: IButtonTable[]
+  buttons?: IButtonTable[],
+  object?: boolean,
+  fieldObject?: string
 }

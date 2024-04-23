@@ -12,6 +12,9 @@ export class TableGeneratorComponent {
 
   @Input() tableFields: ITableField[] = []
   @Input() data: any[] = []
-  @Input() buttonsColumn: IButtonTable[] = []
+
+  teste(data: any) {
+    console.log(data);
+  }
 
 }

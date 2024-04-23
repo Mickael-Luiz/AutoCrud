@@ -1,1 +1,34 @@
-<app-crud-generator [filterFields]="filterFields" [tableFields]="tableFields" [data]="data" [formFields]="formFields" [operationTitle]="operationTitle"></app-crud-generator>
+<app-table-generator [tableFields]="tableFields" [data]="data"></app-table-generator>
+<div class="d-flex" style="width: 100%; padding-bottom: 10px; justify-content: end;">
+  <p-button label="Adicionar" icon="pi pi-plus" (click)="showDialog()"></p-button>
+</div>
+
+
+<p-dialog header="Header" [(visible)]="formVisible" [modal]="true" [maximizable]="true" [style]="{ width: '70rem' }"
+  [breakpoints]="{ '1199px': '90vw', '575px': '90vw' }">
+  <ng-template pTemplate="header">
+    <div class="inline-flex align-items-center justify-content-center gap-2">
+      <span style="font-weight: bold; white-space: nowrap;">{{operationTitle}}</span>
+    </div>
+  </ng-template>
+
+  <p-tabView>
+    <p-tabPanel header="Lançamento">
+      <app-form-generator [formFields]="formFieldsLancamento" [saveButton]="false"></app-form-generator>
+    </p-tabPanel>
+
+    <p-tabPanel header="Pagamentos">
+      <app-form-generator [formFields]="formFieldsPayments" (sendEvent)="addPayment($event)"></app-form-generator>
+      <app-table-generator [tableFields]="tablePayments" [data]="dataPayment"></app-table-generator>
+    </p-tabPanel>
+
+    <p-tabPanel header="Detalhes">
+      <app-form-generator [formFields]="formFieldsDetails" (sendEvent)="addDetail($event)"></app-form-generator>
+      <app-table-generator [tableFields]="tableDetails" [data]="dataDetails"></app-table-generator>
+    </p-tabPanel>
+  </p-tabView>
+
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-save" (click)="formVisible = false" label="Salvar" pAutoFocus [autofocus]="true"></p-button>
+  </ng-template>
+</p-dialog>

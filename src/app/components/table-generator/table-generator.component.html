@@ -12,8 +12,12 @@
       <tr>
         <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align}">
 
-          <span *ngIf="col.field != 'actions'">
+          <span *ngIf="col.field != 'actions' && !col.object">
             {{ rowData[col.field] }}
+          </span>
+
+          <span *ngIf="col.object">
+            {{ rowData[col.field][col.fieldObject] }}
           </span>
 
           <span *ngIf="col.field == 'actions'" class="tdButtons">

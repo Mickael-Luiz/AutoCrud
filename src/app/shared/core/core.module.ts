@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
@@ -14,6 +16,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
+import {TabViewModule} from 'primeng/tabview';
 import { TreeModule } from 'primeng/tree';
 
 import { CrudGeneratorComponent } from 'src/app/components/crud-generator/crud-generator.component';
@@ -30,6 +33,8 @@ import { TreeComponent } from 'src/app/components/tree/tree.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     TableModule,
     InputTextModule,
     ButtonModule,
@@ -43,7 +48,8 @@ import { TreeComponent } from 'src/app/components/tree/tree.component';
     InputNumberModule,
     CalendarModule,
     TreeModule,
-    RadioButtonModule
+    RadioButtonModule,
+    TabViewModule
   ],
   exports: [
     CrudGeneratorComponent,
@@ -63,7 +69,8 @@ import { TreeComponent } from 'src/app/components/tree/tree.component';
     CalendarModule,
     TreeModule,
     TreeComponent,
-    RadioButtonModule
+    RadioButtonModule,
+    TabViewModule
   ]
 })
 export class CoreModule { }

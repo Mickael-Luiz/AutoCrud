@@ -1,33 +1,39 @@
 <div class="container-form">
 
-  <form class="grid" style="width: 100%;">
+  <form class="grid" style="width: 100%;" [formGroup]="form" *ngIf="form">
 
     <div class="flex flex-column gap-2" *ngFor="let field of formFields" [ngClass]="field.col ?? 'col-12 col-md-6 col-lg-4' " style="padding: 10px;">
       <label [for]="field.field">{{field.label}}</label>
 
-      <input *ngIf="field.type == 'inputtext' || !field.type" pInputText [id]="field.field"/>
+      <input *ngIf="field.type == 'inputtext' || !field.type" pInputText [id]="field.field" [formControlName]="field.field"/>
 
-      <textarea *ngIf="field.type == 'inputtextarea'" pInputTextarea [id]="field.field"></textarea>
+      <textarea *ngIf="field.type == 'inputtextarea'" pInputTextarea [id]="field.field" [formControlName]="field.field"></textarea>
 
-      <p-calendar *ngIf="field.type == 'calendar'" [id]="field.field" [showIcon]="true" [showButtonBar]="true"></p-calendar>
+      <p-calendar *ngIf="field.type == 'calendar'" [id]="field.field" [showIcon]="true" [showButtonBar]="true" [formControlName]="field.field"></p-calendar>
 
-      <p-dropdown *ngIf="field.type == 'dropdown'" [options]="field.values ?? [] " optionLabel="name" [id]="field.field"></p-dropdown>
+      <p-dropdown *ngIf="field.type == 'dropdown'" [options]="field.values ?? [] " optionLabel="name" [id]="field.field" [formControlName]="field.field"></p-dropdown>
 
-      <p-inputMask *ngIf="field.type == 'inputmask'" [mask]="field.values" [placeholder]="field.values" [id]="field.field"></p-inputMask>
+      <p-dropdown *ngIf="field.type == 'dropdownFilter'" [options]="field.values ?? [] " [filter]="true" filterBy="name" [showClear]="true" optionLabel="name" [id]="field.field" [formControlName]="field.field"></p-dropdown>
 
-      <p-inputNumber *ngIf="field.type == 'inputnumber'" [id]="field.field"></p-inputNumber>
+      <p-inputMask *ngIf="field.type == 'inputmask'" [mask]="field.values" [placeholder]="field.values" [id]="field.field" [formControlName]="field.field"></p-inputMask>
 
-      <p-multiSelect *ngIf="field.type == 'multiselect'" [options]="field.values ?? []" defaultLabel="Select a Option" optionLabel="name" display="chip" [id]="field.field"></p-multiSelect>
+      <p-inputNumber *ngIf="field.type == 'inputnumber'" [id]="field.field" [formControlName]="field.field"></p-inputNumber>
+
+      <p-multiSelect *ngIf="field.type == 'multiselect'" [options]="field.values ?? []" defaultLabel="Select a Option" optionLabel="name" display="chip" [id]="field.field" [formControlName]="field.field"></p-multiSelect>
 
       <div *ngIf="field.type == 'radiobutton'">
         <div *ngFor="let item of field.values" class="field-checkbox">
-          <p-radioButton [inputId]="item.key" [name]="field.groupname ?? 'group'" [value]="item"></p-radioButton>
+          <p-radioButton [inputId]="item.key" [name]="field.groupname ?? 'group'" [value]="item" [formControlName]="field.field"></p-radioButton>
           <label [for]="item.key">{{item.name}}</label>
         </div>
       </div>
 
 
       <small *ngIf="false">Campo Obrigatório.</small>
+    </div>
+
+    <div class="d-flex" style="width: 100%; padding: 10px; justify-content: end;" *ngIf="saveButton">
+      <p-button label="Adicionar" icon="pi pi-plus" (onClick)="sendObject()"></p-button>
     </div>
 
   </form>
