@@ -14,10 +14,4 @@ export class TreeComponent {
     return !!obj.hasParent
   }
 
-  teste() {
-    console.log('teste');
-
-  }
-
-
 }

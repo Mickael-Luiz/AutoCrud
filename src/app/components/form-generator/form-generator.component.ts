@@ -30,13 +30,8 @@ export class FormGeneratorComponent {
 
   }
 
-  viewForm() {
-    console.log(this.form);
-  }
-
   sendObject() {
     this.sendEvent.emit(this.form.value)
-    console.log(this.form.value);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface IMenuOptions {
   area: string,
@@ -23,7 +24,7 @@ export class MenuComponent {
   menuOptions: IMenuOptions[] = [
     {
       area: 'APLICAÇÃO', options: [
-        {label: 'Painel de Controle', icon: '', path:''},
+        {label: 'Lançamento Financeiro', icon: 'pi-dollar', path:'financial-release'},
         {label: 'Compras', icon: '', path:''},
         {label: 'Suprimentos', icon: '', path:''},
         {label: 'Cadastro de Banco', icon: '', path:''},
@@ -62,5 +63,14 @@ export class MenuComponent {
       ]
     }
   ]
+
+  constructor(private router: Router) {
+
+  }
+
+  navigateTo(path: string) {
+    this.router.navigate([path])
+    this.menuInactivate = true
+  }
 
 }
